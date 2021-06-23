@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "webpack serve --config webpack.dev.js",
-    "build": "react-scripts build"
+    "build": "webpack --config webpack.prod.js"
   },
   "dependencies": {
     "react": "^17.0.2",
