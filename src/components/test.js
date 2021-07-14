@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { usePosition } from "../Hook/PositionHook";
+import { usePosition } from "../Position/Position";
+import "../styles/preview.css";
 import CatSprite from "./CatSprite";
 function Preview() {
   const { y, x, angle } = usePosition();
@@ -11,9 +12,10 @@ function Preview() {
 
   const h = y;
   const v = x;
+  console.log(v, h, xAxis, yAxis);
   const theta = angle + "deg";
-
   function DragstartHandler(e) {
+    console.log("dragstart");
     const offsetX = xAxis - e.clientX;
     const offsetY = yAxis - e.clientY;
     e.dataTransfer.setData("text/html", `${offsetX},${offsetY}`);
@@ -32,8 +34,8 @@ function Preview() {
   return (
     <>
       <div
-        className="absolute flex-none w-100 h-full w-full overflow-y-auto p-2"
         onDragOver={DragoverHandler}
+        className="content"
         onDrop={dropHandler}
       >
         <div
