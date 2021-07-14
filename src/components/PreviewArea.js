@@ -32,7 +32,7 @@ function Preview() {
   return (
     <>
       <div
-        className="absolute flex-none w-100 h-full w-full overflow-y-auto p-2"
+        className="absolute flex-none h-full w-1/3 overflow-y-auto p-2"
         onDragOver={DragoverHandler}
         onDrop={dropHandler}
       >
