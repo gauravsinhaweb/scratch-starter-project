@@ -3,7 +3,7 @@ import React from "react";
 export default function Menu({ className, id }) {
   return (
     <div
-      className={`w-20 flex flex-col overflow-y-auto flex flex-col items-start border-r border-gray-300 text-sm items-center${className}`}
+      className={` w-30 flex flex-col overflow-y-auto flex flex-col items-start border-r border-gray-300 text-sm items-center${className}`}
       id={id}
     >
       <div className="w-20 text-center bg-gray-200 cursor-pointer">

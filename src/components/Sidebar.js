@@ -2,8 +2,15 @@ import React from "react";
 import { usePosition } from "../Hook/PositionHook";
 import Icon from "./Icon";
 
-export default function Sidebar() {
+export default function Sidebar(props) {
   const { y, setY, x, setX, angle, setAngle } = usePosition();
+  const { vertical, horizontal } = props;
+  function DragstartHandler(e) {
+    const offsetX = horizontal - e.clientX;
+    const offsetY = vertical - e.clientY;
+    e.dataTransfer.setData("text/html", `${offsetX},${offsetY}`);
+  }
+  console.log(vertical, horizontal);
   return (
     <div className="w-60 flex-none h-full overflow-y-auto flex flex-col items-start p-2 border-r border-gray-200">
       <div className="font-bold"> {"Events"} </div>
@@ -23,11 +30,20 @@ export default function Sidebar() {
       </div>
       <div className="font-bold"> {"Motion"} </div>
       <div
+        className={horizontal > 87 ? "absolute" : null}
+        style={{
+          left: `${horizontal + "px"}`,
+          top: `${vertical + "px"}`,
+          cursor: "grabbing",
+        }}
+        draggable="true"
+        onDragStart={DragstartHandler}
         onClick={() => setY(y - 10)}
-        className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm"
-        style={{ cursor: "grabbing" }}
       >
-        {"Move 10 steps Up"}
+        <div className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm">
+          {" "}
+          {"Move 10 steps Up"}
+        </div>
       </div>{" "}
       <div
         onClick={() => setY(y + 10)}
