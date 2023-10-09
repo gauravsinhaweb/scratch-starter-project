@@ -17,6 +17,8 @@ export default function Sidebar(props) {
       <div
         className="flex flex-row flex-wrap bg-yellow-500 text-white px-2 py-1 my-2 text-sm"
         style={{ cursor: "grabbing" }}
+        draggable="true"
+        onDragStart={DragstartHandler}
       >
         {"When "}
         <Icon name="flag" size={15} className="text-green-600 mx-2" />
@@ -25,6 +27,8 @@ export default function Sidebar(props) {
       <div
         className="flex flex-row flex-wrap bg-yellow-500 text-white px-2 py-1 my-2 text-sm"
         style={{ cursor: "grabbing" }}
+        draggable="true"
+        onDragStart={DragstartHandler}
       >
         {"When this sprite clicked"}
       </div>
@@ -34,7 +38,7 @@ export default function Sidebar(props) {
         style={{
           left: `${horizontal + "px"}`,
           top: `${vertical + "px"}`,
-          cursor: "grabbing",
+          cursor: "grabbing"
         }}
         draggable="true"
         onDragStart={DragstartHandler}
